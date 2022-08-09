@@ -1,7 +1,12 @@
 package sort
 
 class InsertionSort {
-  def insert[T](less: (T, T) => Boolean)(input: List[T], value: T): List[T] = {
-    input.lastIndexOf(x => x < value)
+  def sort(sequenceToSort: List[Int]): List[Int] = {
+    if (sequenceToSort.isEmpty) Nil
+    else insert(sequenceToSort.head, sort(sequenceToSort.tail))
+  }
+  def insert(value: Int, sortedList: List[Int]): List[Int] = {
+    if (sortedList.isEmpty || (value <= sortedList.head)) value :: sortedList
+    else sortedList.head :: insert(value, sortedList.tail)
   }
 }
