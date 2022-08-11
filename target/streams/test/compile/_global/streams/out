@@ -1,2 +1,18 @@
 [debug] Acquiring lock on file C:\Users\aglog\IdeaProjects\Algorithms\project\target\.sbt-compilation-infos\algorithms-test\.sbt-idea-lock ...
+[error] C:\Users\aglog\IdeaProjects\Algorithms\src\test\scala\InsertionSortTest.scala:1:12: object scalatest is not a member of package org
+[error] import org.scalatest.funsuite.AnyFunSuite
+[error]            ^
+[error] C:\Users\aglog\IdeaProjects\Algorithms\src\test\scala\InsertionSortTest.scala:2:12: object scalatest is not a member of package org
+[error] import org.scalatest.matchers.should.Matchers.convertToAnyShouldWrapper
+[error]            ^
+[error] C:\Users\aglog\IdeaProjects\Algorithms\src\test\scala\InsertionSortTest.scala:5:33: not found: type AnyFunSuite
+[error] class InsertionSortTest extends AnyFunSuite {
+[error]                                 ^
+[error] C:\Users\aglog\IdeaProjects\Algorithms\src\test\scala\InsertionSortTest.scala:19:3: not found: value test
+[error]   test("insertion sort") {
+[error]   ^
+[error] C:\Users\aglog\IdeaProjects\Algorithms\src\test\scala\InsertionSortTest.scala:21:21: value shouldEqual is not a member of sort.InsertionSort
+[error]       insertionSort shouldEqual c.output
+[error]                     ^
+[error] 5 errors found
 [debug] Releasing lock on file C:\Users\aglog\IdeaProjects\Algorithms\project\target\.sbt-compilation-infos\algorithms-test\.sbt-idea-lock.
