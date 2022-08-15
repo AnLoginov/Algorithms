@@ -1,8 +1,9 @@
-import sort.InsertionSort
+import arithmetic.BitwiseSum
 
 object Main extends App {
-  val sequence = List(3, 5, 1)
-  val insertionSort = new InsertionSort
-  val sortedSequence = insertionSort.sort(sequence, false)
-  sortedSequence.foreach(println(_))
+  val sequence1 = Array(0, 1, 1, 0)
+  val sequence2 = Array(0, 1, 1, 2)
+  val bitwiseSum = new BitwiseSum
+  val res = bitwiseSum.sum(sequence1, sequence2)
+  res.foreach(print(_))
 }
