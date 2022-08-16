@@ -12,6 +12,7 @@ target/
 
 # general
 *.class
+*.cache
 
 # other
 .history
