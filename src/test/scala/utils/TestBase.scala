@@ -14,6 +14,10 @@ class TestBase extends AnyFunSuite {
   val suite6 = Array(0, 0, 0, 0)
   val suite7 = Array(0, 1, 0, 1)
 
+  // sorted sequences
+  val suite8 = Array(0, 3, 7, 9, 14, 15, 28, 47)
+  val suite9 = Array(-1, 6, 12, 25, 33)
+
   protected val sortCases1 = Seq(
     SortCase(true, suite1, List(1, 3, 9)),
     SortCase(true, suite2, List(5, 9, 10)),
@@ -35,6 +39,15 @@ class TestBase extends AnyFunSuite {
     BitwiseSumCase(suite4, suite6, Array(0, 1, 1, 1, 1)),
     BitwiseSumCase(suite5, suite7, Array(0, 1, 0, 1, 1)),
     BitwiseSumCase(suite7, suite4, Array(1, 0, 1, 0, 0))
+  )
+
+  protected val searchCases2 = Seq(
+    SearchCase(suite8, 28, Some(28)),
+    SearchCase(suite8, 0, Some(0)),
+    SearchCase(suite8, 9, Some(9)),
+    SearchCase(suite8, 4, None),
+    SearchCase(suite9, 12, Some(12)),
+    SearchCase(suite9, 33, Some(33))
   )
 }
 
