@@ -9,14 +9,14 @@ class TestBase extends AnyFunSuite {
   val suite3 = List(0, -1, 12, 125, 4)
 
   // bitwise operations suits
-  val suite4 = Array(1, 1, 1, 1)
-  val suite5 = Array(0, 1, 1, 0)
-  val suite6 = Array(0, 0, 0, 0)
-  val suite7 = Array(0, 1, 0, 1)
+  val suite4: Array[Int] = Array(1, 1, 1, 1)
+  val suite5: Array[Int] = Array(0, 1, 1, 0)
+  val suite6: Array[Int] = Array(0, 0, 0, 0)
+  val suite7: Array[Int] = Array(0, 1, 0, 1)
 
   // sorted sequences
-  val suite8 = Array(0, 3, 7, 9, 14, 15, 28, 47)
-  val suite9 = Array(-1, 6, 12, 25, 33)
+  val suite8 = List(0, 3, 7, 9, 14, 15, 28, 47)
+  val suite9 = List(-1, 6, 12, 25, 33)
 
   protected val sortCases1 = Seq(
     SortCase(true, suite1, List(1, 3, 9)),
@@ -48,6 +48,13 @@ class TestBase extends AnyFunSuite {
     SearchCase(suite8, 4, None),
     SearchCase(suite9, 12, Some(12)),
     SearchCase(suite9, 33, Some(33))
+  )
+
+  protected val searchCases3 = Seq(
+    SearchCase(suite1, 4, Some((3, 1))),
+    SearchCase(suite1, 5, None),
+    SearchCase(suite3, 3, Some((-1, 4))),
+    SearchCase(suite8, 9, Some((0, 9)))
   )
 }
 
