@@ -9,7 +9,7 @@ class MergeSort extends Sort[List[Int]] {
       case xs :: Nil => List(xs)
       case _ => val (left, right) = data.splitAt(data.length / 2)
         if (isAscendingOrder)
-          mergeAscending(sort(left,isAscendingOrder), sort(right, isAscendingOrder))
+          mergeAscending(sort(left, isAscendingOrder), sort(right, isAscendingOrder))
         else mergeDescending(sort(left,isAscendingOrder), sort(right, isAscendingOrder))
     }
   }

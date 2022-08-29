@@ -11,4 +11,12 @@ class SearchSumTest extends TestBase {
       searchSum.search(c.input, c.item) shouldEqual c.output
     })
   }
+
+  val searchSumFast: SearchSumFast = new SearchSumFast
+
+  test("search sum fast") {
+    searchCases3.foreach(c => {
+      searchSumFast.search(c.input, c.item) shouldEqual c.output
+    })
+  }
 }
