@@ -27,6 +27,7 @@ class SearchSumFast extends Search[Seq[Int], Int] {
     }
   }
 
+  // TODO: currently this algorithm returns inappropriate result in some cases. Need to fix the implementation.
   @tailrec
   private def sum(subSeq1: List[Int], subSeq2: List[Int], item: Int, acc: List[Int] = List()): List[Int] = {
     (subSeq1, subSeq2) match {

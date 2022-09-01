@@ -1,6 +1,6 @@
 package sort
 
-class InsertionSort {
+class InsertionSort extends Sort[List[Int]] {
   def sort(sequenceToSort: List[Int], isAscending: Boolean): List[Int] = {
     if (sequenceToSort.isEmpty) Nil
     else insert(sequenceToSort.head, sort(sequenceToSort.tail, isAscending), isAscending)
