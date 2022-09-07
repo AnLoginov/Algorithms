@@ -1,6 +1,6 @@
 import arithmetic.BitwiseSum
 import search.{SearchSum, SearchSumFast}
-import sort.{MergeInsertionSort, MergeSort, SelectionSort}
+import sort.{BubbleSort, MergeInsertionSort, MergeSort, SelectionSort}
 
 object Main extends App {
   val sequence1 = Array(0, 1, 1, 0)
@@ -9,6 +9,7 @@ object Main extends App {
   val mergeSort = new MergeSort
   val searchSum = new SearchSumFast
   val miSort = new MergeInsertionSort
-  val res = miSort.sort(sequence2, true)
+  val bubbleSort = new BubbleSort
+  val res = bubbleSort.sort(sequence2, true)
   println(res)
 }
