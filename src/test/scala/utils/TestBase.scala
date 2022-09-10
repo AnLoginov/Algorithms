@@ -19,6 +19,7 @@ class TestBase extends AnyFunSuite {
   val suite9 = List(-1, 6, 12, 25, 33)
 
   val suite10 = List(5, 7, 0, 13, -14, 2, 8, -3, 19, -7, 70)
+  val suite11 = List(0, -2, 3, 12, -5, 8, 11)
 
   protected val sortCases1 = Seq(
     SortCase(true, suite1, List(1, 3, 9)),
@@ -62,7 +63,8 @@ class TestBase extends AnyFunSuite {
   protected val searchCases4 = Seq(
     SearchByConditionCase(suite8, Some(0, 47)),
     SearchByConditionCase(suite3, Some(-1, 125)),
-    SearchByConditionCase(suite10, Some(-14, 70))
+    SearchByConditionCase(suite10, Some(-14, 70)),
+    SearchByConditionCase(suite11, Some(-5, 11))
   )
 }
 
