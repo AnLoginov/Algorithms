@@ -1,7 +1,7 @@
 package utils
 
 import org.scalatest.funsuite.AnyFunSuite
-import utils.TestBase.{BitwiseSumCase, SearchCase, SortCase}
+import utils.TestBase.{BitwiseSumCase, SearchByConditionCase, SearchCase, SortCase}
 
 class TestBase extends AnyFunSuite {
   val suite1 = List(3, 9, 1)
@@ -17,6 +17,8 @@ class TestBase extends AnyFunSuite {
   // sorted sequences
   val suite8 = List(0, 3, 7, 9, 14, 15, 28, 47)
   val suite9 = List(-1, 6, 12, 25, 33)
+
+  val suite10 = List(5, 7, 0, 13, -14, 2, 8, -3, 19, -7, 70)
 
   protected val sortCases1 = Seq(
     SortCase(true, suite1, List(1, 3, 9)),
@@ -56,10 +58,17 @@ class TestBase extends AnyFunSuite {
     SearchCase(suite3, 3, Some((-1, 4))),
     SearchCase(suite8, 9, Some((0, 9)))
   )
+
+  protected val searchCases4 = Seq(
+    SearchByConditionCase(suite8, Some(0, 47)),
+    SearchByConditionCase(suite3, Some(-1, 125)),
+    SearchByConditionCase(suite10, Some(-14, 70))
+  )
 }
 
 object TestBase {
   case class SortCase(isAscending: Boolean, input: List[Int], output: List[Int])
   case class SearchCase(input: Seq[Int], item: Int, output: Option[_])
   case class BitwiseSumCase(value1: Array[Int], value2: Array[Int], output: Array[Int])
+  case class SearchByConditionCase(input: List[Int], output: Option[_])
 }
