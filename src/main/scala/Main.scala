@@ -1,5 +1,5 @@
 import arithmetic.BitwiseSum
-import search.{MaxSubsequenceElementwiseSearch, SearchSum, SearchSumFast}
+import search.{MaxSubsequenceElementwiseSearch, MaxSubsequenceSearch, SearchSum, SearchSumFast}
 import sort.{BubbleSort, MergeInsertionSort, MergeSort, SelectionSort}
 
 object Main extends App {
@@ -12,6 +12,7 @@ object Main extends App {
   val miSort = new MergeInsertionSort
   val bubbleSort = new BubbleSort
   val maxSubseqSearch = new MaxSubsequenceElementwiseSearch
-  val res = maxSubseqSearch.search(sequence4)
+  val maxSubseqSearch1 = new MaxSubsequenceSearch
+  val res = maxSubseqSearch1.search(sequence4)
   println(res)
 }
