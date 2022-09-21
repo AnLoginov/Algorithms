@@ -1,7 +1,7 @@
 package utils
 
 import org.scalatest.funsuite.AnyFunSuite
-import utils.TestBase.{BitwiseSumCase, SearchByConditionCase, SearchCase, SortCase}
+import utils.TestBase.{BitwiseSumCase, MatrixMultiplication, SearchByConditionCase, SearchCase, SortCase}
 
 class TestBase extends AnyFunSuite {
   val suite1 = List(3, 9, 1)
@@ -20,6 +20,15 @@ class TestBase extends AnyFunSuite {
 
   val suite10 = List(5, 7, 0, 13, -14, 2, 8, -3, 19, -7, 70)
   val suite11 = List(0, -2, 3, 12, -5, 8, 11)
+
+  // matrix operations
+  val suite12: (Array[Array[Int]], Array[Array[Int]]) =
+    (Array(Array(-2, 1), Array(5, 4)), Array(Array(3, -1), Array(0, 0)))
+  val suite13: (Array[Array[Int]], Array[Array[Int]]) =
+    (Array(Array(2, -3), Array(4, -6)), Array(Array(9, 6), Array(-6, -4)))
+  val suite14: (Array[Array[Int]], Array[Array[Int]]) =
+    (Array(Array(5, 8, -4), Array(6, 9, -5), Array(4, 7, -3)),
+      Array(Array(3, 4, 9), Array(2, -1, 6), Array(5, 3, 5)))
 
   protected val sortCases1 = Seq(
     SortCase(true, suite1, List(1, 3, 9)),
@@ -66,6 +75,12 @@ class TestBase extends AnyFunSuite {
     SearchByConditionCase(suite10, Some(-14, 70)),
     SearchByConditionCase(suite11, Some(-5, 11))
   )
+
+  protected val matrixMultiplyCases = Seq(
+    MatrixMultiplication(suite12._1, suite12._2, Array(Array(-7, 0), Array(11, 0))),
+    MatrixMultiplication(suite13._1, suite13._2, Array(Array(0, 0), Array(0, 0))),
+    MatrixMultiplication(suite14._1, suite14._2, Array(Array(11, -22, 29), Array(9, -27, 32), Array(13, -17, 26)))
+  )
 }
 
 object TestBase {
@@ -73,4 +88,5 @@ object TestBase {
   case class SearchCase(input: Seq[Int], item: Int, output: Option[_])
   case class BitwiseSumCase(value1: Array[Int], value2: Array[Int], output: Array[Int])
   case class SearchByConditionCase(input: List[Int], output: Option[_])
+  case class MatrixMultiplication(matrix1: Array[Array[Int]], matrix2: Array[Array[Int]], output: Array[Array[Int]])
 }

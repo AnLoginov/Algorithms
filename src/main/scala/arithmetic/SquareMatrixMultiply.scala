@@ -22,6 +22,7 @@ import scala.language.postfixOps
  * 5.       C[ij] = C[ij] + A[ik] * B[kj]
  * 6. return C;
  */
+//TODO: currently the second matrix has to come inverted (so it is just a sequence of columns). Need to invert here.
 class SquareMatrixMultiply extends Multiply[Array[Array[Int]]] {
   override def multiply(matrix1: Array[Array[Int]], matrix2: Array[Array[Int]]): Array[Array[Int]] = {
     countMatrix(matrix1.zipWithIndex, matrix2.zipWithIndex, new Array[Array[Int]](matrix1.length))

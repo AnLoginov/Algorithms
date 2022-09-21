@@ -17,6 +17,8 @@ object Main extends App {
   val matrix1 = Array(Array(-2, 1), Array(5, 4))
   val matrix2 = Array(Array(3, -1), Array(0, 0))
   val matrixMultiply = new SquareMatrixMultiply
-  val res1 = matrixMultiply.multiply(matrix1, matrix2)
+  val suite13: (Array[Array[Int]], Array[Array[Int]]) =
+    (Array(Array(2, -3), Array(4, -6)), Array(Array(9, 6), Array(-6, -4)))
+  val res1 = matrixMultiply.multiply(suite13._1, suite13._2)
   res1.foreach(a1 => {a1.foreach(v => print(v + " ")); println()})
 }
