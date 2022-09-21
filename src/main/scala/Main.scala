@@ -1,4 +1,4 @@
-import arithmetic.BitwiseSum
+import arithmetic.{BitwiseSum, SquareMatrixMultiply}
 import search.{MaxSubsequenceElementwiseSearch, MaxSubsequenceSearch, SearchSum, SearchSumFast}
 import sort.{BubbleSort, MergeInsertionSort, MergeSort, SelectionSort}
 
@@ -14,5 +14,9 @@ object Main extends App {
   val maxSubseqSearch = new MaxSubsequenceElementwiseSearch
   val maxSubseqSearch1 = new MaxSubsequenceSearch
   val res = maxSubseqSearch1.search(sequence4)
-  println(res)
+  val matrix1 = Array(Array(-2, 1), Array(5, 4))
+  val matrix2 = Array(Array(3, -1), Array(0, 0))
+  val matrixMultiply = new SquareMatrixMultiply
+  val res1 = matrixMultiply.multiply(matrix1, matrix2)
+  res1.foreach(a1 => {a1.foreach(v => print(v + " ")); println()})
 }

@@ -1,5 +1,8 @@
 package arithmetic
 
+import scala.annotation.tailrec
+import scala.language.postfixOps
+
 /**
  * Assume two equal matrix of size n*n:
  *     |a11  a12|      |b11  b12|
@@ -20,22 +23,36 @@ package arithmetic
  * 6. return C;
  */
 class SquareMatrixMultiply extends Multiply[Array[Array[Int]]] {
-  override def multiply(value1: Array[Array[Int]], value2: Array[Array[Int]],
-                        acc: Array[Array[Int]] = Array[Array[Int]](Array())): Array[Array[Int]] = {
-    value1.zipWithIndex match {
-      case xs if xs isEmpty => acc
-      case xs => {
-        value2.zipWithIndex match {
-          case ys if ys isEmpty => acc
-          case ys =>
-            acc(xs.head._2(ys.head._2))
-            multiply(value1.tail, value2.tail, )
-        }
-      }
+  override def multiply(matrix1: Array[Array[Int]], matrix2: Array[Array[Int]]): Array[Array[Int]] = {
+    countMatrix(matrix1.zipWithIndex, matrix2.zipWithIndex, new Array[Array[Int]](matrix1.length))
+  }
+
+  @tailrec
+  private def countMatrix(rows: Array[(Array[Int], Int)], columns: Array[(Array[Int], Int)],
+                          matrixAcc: Array[Array[Int]]): Array[Array[Int]] = {
+    rows match {
+      case r if r isEmpty => matrixAcc
+      case r =>
+        matrixAcc(r.head._2) = countRow(r.head._1, columns, new Array[Int](columns.length))
+        countMatrix(r.tail, columns, matrixAcc)
     }
   }
 
-  private def iter(row: (Array[Int], Int), column: (Array[Int], Int), rowAcc: Array[Int] = Array()): Array[Int] = {
+  @tailrec
+  private def countRow(row: Array[Int], columns: Array[(Array[Int], Int)], rowAcc: Array[Int]): Array[Int] = {
+    columns match {
+      case xs if xs isEmpty => rowAcc
+      case xs =>
+        rowAcc(xs.head._2) = countCell(row, xs.head._1)
+        countRow(row, xs.tail, rowAcc)
+    }
+  }
 
+  @tailrec
+  private def countCell(row: Array[Int], column: Array[Int], cellAcc: Int = 0): Int = {
+    (row, column) match {
+      case (r, _) if r isEmpty => cellAcc
+      case (r, c) => countCell(r.tail, c.tail, cellAcc = cellAcc + r.head * c.head)
+    }
   }
 }
